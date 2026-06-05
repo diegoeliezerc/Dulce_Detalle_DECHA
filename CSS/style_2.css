@@ -197,7 +197,7 @@ body{
 /* 2. EL LOGO (Con margen inferior para empujar el texto hacia abajo) */
 .hero-logo {
   display: block;
-  margin-top: -80px;    /* NUEVO: Sube el logo directamente al círculo verde */
+  margin-top: -60px;    /* NUEVO: Sube el logo directamente al círculo verde */
   margin-bottom: 10px;  /* Separa el logo para que no toque el título de abajo */
   position: relative;
   z-index: 5;
