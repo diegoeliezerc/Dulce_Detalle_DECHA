@@ -134,6 +134,7 @@ Mi nombre es ${nombre_completo}
 
 Quiero información para un pastel personalizado 🎂
 
+📍 Dirección de entrega: ${direccion_entrega}
 📞 Teléfono: ${telefono}
 🎉 Evento: ${tipo_evento}
 🎂 Sabor: ${sabor}
