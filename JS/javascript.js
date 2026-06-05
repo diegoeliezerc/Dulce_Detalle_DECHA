@@ -80,8 +80,8 @@ backToTopBtn.addEventListener("click", () => {
 // ==========================================================================
 // 5. INICIALIZACIÓN DE CLIENTE SUPABASE (URL CORREGIDA)
 // ==========================================================================
-const SUPABASE_URL = "https://ilbitlztwmlxcadwkqsg.supabase.co"; 
-const SUPABASE_KEY = "sb_publishable_YhjsYIfCcRxJOQRll1rK0A_s9Y3gSR9"; 
+const SUPABASE_URL = "https://hmfkgtnwqscyxgzvtllr.supabase.co"; 
+const SUPABASE_KEY = "sb_publishable_w7WojcwY0n19pQeCJt3exw_0sDfcWaZ"; 
 
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); 
 
