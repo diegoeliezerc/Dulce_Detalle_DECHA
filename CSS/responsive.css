@@ -1,0 +1,175 @@
+/* ==========================================================================
+    SECCIÓN RESPONSIVE OPTIMIZADA (REEMPLAZA ESTO)
+   ========================================================================== */
+
+/* --- DISPOSITIVOS MÓVILES (max-width: 768px) --- */
+@media (max-width: 768px) {
+
+  /* Ajustes generales de espaciado */
+    .catalogo, .custom-section, .values-section, .testimonials, .final-cta {
+        padding: 60px 5%;
+    }
+
+    /* 1. MANTENER HEADER HORIZONTAL: Estructura en línea */
+    .navbar {
+        display: flex;
+        flex-direction: row; 
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 4%; 
+        gap: 10px;
+    }
+
+    .logo-section {
+        display: flex;
+        flex-direction: row; 
+        gap: 10px;
+        align-items: center;
+    }
+
+    .brand-logo img {
+        width: 45px;  
+        height: 45px;
+    }
+
+    /* SOLUCIÓN AL CENTRADO DEL TEXTO (Flecha verde):
+        Convertimos a flex-column y alineamos los textos horizontalmente entre sí */
+    .brand-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;   /* Centra verticalmente el título y el eslogan */
+        text-align: center;    /* Asegura el alineamiento del texto */
+    }
+
+    .h1-logo {
+        font-size: 24px; 
+        text-align: center;
+        display: block;
+    }
+
+    .tagline {
+        font-size: 0.65rem;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+    /* 2. EL TRUCO DEL BOTÓN (Número 2): Icono de WhatsApp redondo */
+    .navbar .hero-btn .btn-text {
+        display: none; 
+    }
+
+    .navbar .hero-btn {
+        padding: 0; 
+        width: 40px;   
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%; 
+    }
+
+    .navbar .hero-btn i {
+        font-size: 1.3rem; 
+        margin: 0;
+    }
+
+    /* ==========================================
+        EL HERO SIGUE CENTRADO
+        ========================================== */
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 5% 20px;
+        gap: 30px;
+    }
+
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        text-align: center;     
+        width: 100%;
+    }
+
+    /* El botón de abajo (dentro del Hero) conserva su texto intacto */
+    .hero-content .hero-btn {
+        align-self: center;
+        margin: 0 auto;
+        width: auto;
+        height: auto;
+        border-radius: 30px;
+        padding: 12px 22px;
+        display: inline-flex;
+    }
+    
+    .hero-content .hero-btn .btn-text {
+        display: inline; 
+    }
+
+    /* Títulos principales del cuerpo */
+    .section-title h2, .section-header h2, .final-cta h2 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    /* Formulario de Personalización */
+    .cake-form {
+        padding: 30px 20px;
+        border-radius: 25px;
+    }
+
+    .input-group, .select-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .cake-image {
+        height: 220px;
+    }
+    }
+
+    /* --- MÓVILES PEQUEÑOS (max-width: 480px) --- */
+    @media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2.1rem;
+    }
+
+    /* Evita que se rompa el comportamiento centrado del texto del header */
+    .brand-info .h1-logo {
+        font-size: 1.8rem;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .cake, .circle {
+        width: 280px;
+    }
+
+    .circle {
+        height: 280px;
+    }
+
+    /* Footer en una sola columna */
+    .footer-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-column:first-child {
+        grid-column: span 1;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

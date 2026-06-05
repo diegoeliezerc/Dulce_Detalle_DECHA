@@ -1,0 +1,29 @@
+.social-links {
+    display: flex;
+    gap: 15px; /* Espacio horizontal entre los iconos */
+    margin-top: 15px;
+}
+
+.social-icon {
+    font-size: 24px; /* Tamaño del icono */
+    color: #000000; /* Color por defecto gris o el que use tu diseño */
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    border: 1px solid #000000;
+    background:linear-gradient(
+        135deg,
+        #ffd6e0,
+        #ffc2d1
+    );
+}
+
+/* Efecto al pasar el cursor (cambia de color y sube un poco) */
+.social-icon:hover {
+    transform: translateY(-3px);
+    background-color: #d11d5b;
+}
+
+.social-icon.whatsapp:hover { color: #ffffff; }
+.social-icon.instagram:hover { color: #ffffff; }
+.social-icon.facebook:hover { color: #ffffff; }
+.social-icon.tiktok:hover { color: #ffffff; }

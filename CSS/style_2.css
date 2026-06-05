@@ -12,10 +12,10 @@ body{
   overflow-x:hidden;
 }
 
-/* ======================================== */
-/* ==========================================================================
-  BOTÓN VOLVER ARRIBA
-   ========================================================================== */
+/* ========================================= */
+/*========  BOTÓN VOLVER ARRIBA ============ */
+/* ========================================= */
+
 .back-to-top-btn {
     position: fixed;
     bottom: 30px;
@@ -45,6 +45,10 @@ body{
     background-color: #b01246; /* Rosa más oscuro */
     transform: scale(1.1);
 }
+
+/* ========================================= */
+/* ========================================= */
+
 /* ----------------- stars ---------------- */
 
 .stars {
@@ -59,35 +63,11 @@ body{
     justify-content: space-between;
     align-items: center;
     padding: 15px 8%;
-    /*background:linear-gradient(
-    135deg,
-    #ffd6e0,
-    #ffc2d1
-    );*/
     background: #EDEDED;
     position: sticky;
-    /*border-bottom: 1px solid #D60B5C;*/
     top: 0;
     z-index: 1000;
-} /*
-.header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:15px 8px;
-  background:rgba(255,255,255,0.2);
-
-  position:fixed;
-  top:0;
-  left:50%;
-  transform:translateX(-50%);
-  width:100%;
-  backdrop-filter:blur(10px);
-  border:1px solid rgba(255,255,255,0.3);
-  border-radius:25px;
-  z-index:1000;
-  box-shadow:0 8px 30px rgba(0,0,0,0.08);
-}*/
+}
 
 .logo-section {
     display: flex;
@@ -120,22 +100,6 @@ body{
     font-style: italic;
     font-weight: 600;
 }
-/*
-.logo-container{
-  display:flex;
-  align-items:center;
-}
-
-.logo{
-  width:70px;
-  height:auto;
-}
-
-.brand{
-  flex:1;
-  margin-left:15px;
-  text-align:center;
-}*/
 
 /* --- Botones --- */
 .btn-primary {
@@ -180,7 +144,6 @@ body{
   font-family:'Great Vibes', cursive;
   color:#d63384;
   line-height: 1;
-
   margin:0;
   font-size:40px;
 }
@@ -195,20 +158,6 @@ body{
   line-height: 1;
   font-weight: 700;
   flex:1;
-  /*
-  margin-left:15px;*/
-  /*
-  text-align:center;
-  font-size:40px;
-  vertical-align: middle;
-*/
-  /* ------------------- *//*
-  font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    color: rgb(143, 46, 130);
-    text-decoration: none;
-    line-height: 1;
-    font-weight: 700;*/
 }
 .brand p{
   margin:0;
@@ -233,375 +182,16 @@ body{
 }
 
 #h2{
-
   font-size:4rem;
-
   line-height:1.1;
-
   color:#D60B5C;
-
   font-family:'Great Vibes', cursive;
-
   margin-bottom:30px;
   margin-top: 20px;
   margin-top: 10px;
-
   border-bottom: 2.5px solid #D60B5C;
 }
 
-/* ________________________________________ */
-
-/* =========================================================
-  ================= CAMPAÑA DÍA DE LA MADRE ===============
-   ========================================================= */
-
-/* ================= SEPARADORES ================= */
-
-.wave-divider{
-  position:relative;
-  width:100px;
-  overflow:hidden;
-  line-height:0;
-  margin-bottom:-2px;
-}
-
-.wave-divider svg{
-  display:block;
-  width:100%;
-  height:90px;
-}
-
-.top-wave path{
-  fill:#fff7f8;
-}
-
-.bottom-wave path{
-  fill:#fff7f8;
-}
-
-.catalogo-M{
-  background:
-  linear-gradient(
-    135deg,
-    #fff7f8 0%,
-    #ffe5ec 100%
-  );
-}
-/* ================= CAMPAÑA ================= */
-
-.mothers-day-campaign{
-
-  width:100%;
-
-  padding:120px 8%;
-
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:80px;
-
-  position:relative;
-  overflow:hidden;
-
-  background:
-  linear-gradient(
-    135deg,
-    #fff7f8 0%,
-    #ffe5ec 100%
-  );
-}
-
-/* EFECTO DECORATIVO */
-
-.mothers-day-campaign::before{
-
-  content:"";
-
-  position:absolute;
-
-  width:450px;
-  height:450px;
-
-  background:
-  radial-gradient(
-    rgba(214,11,92,0.08),
-    transparent 70%
-  );
-
-  top:-150px;
-  right:-100px;
-
-  border-radius:50%;
-}
-
-/* ================= TEXTO ================= */
-
-.campaign-content{
-  flex:1;
-  position:relative;
-  z-index:2;
-}
-
-.campaign-badge{
-
-  display:inline-block;
-
-  background:#ffffff;
-
-  color:#D60B5C;
-
-  padding:12px 22px;
-
-  border-radius:50px;
-
-  font-size:0.9rem;
-  font-weight:600;
-
-  margin-bottom:28px;
-
-  box-shadow:
-  0 8px 20px rgba(0,0,0,0.06);
-}
-
-.campaign-content h2{
-
-  font-size:4rem;
-
-  line-height:1.1;
-
-  color:#D60B5C;
-
-  font-family:'Great Vibes', cursive;
-
-  margin-bottom:28px;
-}
-
-.campaign-content p{
-
-  font-size:1.1rem;
-
-  color:#555;
-
-  line-height:1.9;
-
-  max-width:650px;
-
-  margin-bottom:35px;
-}
-/*
-.campaign-M p{
-
-  font-size:1.1rem;
-
-  color:#f80404;
-
-  line-height:1.9;
-
-  max-width:650px;
-
-  margin-bottom:35px;
-}*/
-/* ================= FEATURES ================= */
-
-.campaign-features{
-
-  display:flex;
-  flex-direction:column;
-  gap:18px;
-
-  margin-bottom:40px;
-}
-
-.feature-item{
-
-  background:rgba(255,255,255,0.65);
-
-  backdrop-filter:blur(8px);
-
-  padding:18px 22px;
-
-  border-radius:20px;
-
-  color:#6D1E0D;
-
-  font-weight:500;
-
-  border:1px solid rgba(214,11,92,0.12);
-
-  box-shadow:
-  0 8px 20px rgba(0,0,0,0.04);
-
-  transition:0.3s ease;
-}
-
-.feature-item:hover{
-
-  transform:translateX(8px);
-
-  background:#ffffff;
-}
-
-/* ================= BOTÓN ================= */
-
-.campaign-btn{
-
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-
-  text-decoration:none;
-
-  background:#D60B5C;
-  color:white;
-
-  padding:20px 34px;
-
-  border-radius:60px;
-
-  font-size:1.05rem;
-  font-weight:600;
-
-  transition:0.35s ease;
-
-  box-shadow:
-  0 15px 30px rgba(214,11,92,0.25);
-}
-
-.campaign-btn:hover{
-
-  transform:
-  translateY(-5px)
-  scale(1.03);
-
-  background:#bc0950;
-}
-
-/* ================= IMAGEN ================= */
-
-.campaign-image{
-
-  flex:1;
-
-  display:flex;
-  justify-content:center;
-  align-items:center;
-
-  position:relative;
-}
-
-.campaign-circle{
-
-  position:absolute;
-
-  width:480px;
-  height:480px;
-
-  border-radius:50%;
-
-  background:
-  linear-gradient(
-    135deg,
-    #ffd6e0,
-    #ffc2d1
-  );
-
-  filter:blur(12px);
-}
-
-.campaign-image img{
-
-  position:relative;
-  z-index:2;
-
-  width:480px;
-  max-width:100%;
-
-  border-radius:35px;
-
-  box-shadow:
-  0 35px 60px rgba(0,0,0,0.18);
-}
-
-/* =========================================================
-  ================= RESPONSIVE =============================
-   ========================================================= */
-
-@media(max-width:1100px){
-
-  .mothers-day-campaign{
-
-    flex-direction:column;
-
-    text-align:center;
-
-    gap:60px;
-  }
-
-  .campaign-content{
-
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
-
-  .campaign-content h2{
-    font-size:3.2rem;
-  }
-
-  .feature-item{
-    width:100%;
-    max-width:600px;
-  }
-}
-
-@media(max-width:768px){
-
-  .mothers-day-campaign{
-    padding:90px 5%;
-  }
-
-  .campaign-content h2{
-    font-size:2.6rem;
-  }
-
-  .campaign-content p{
-    font-size:1rem;
-  }
-
-  .campaign-image img{
-    width:340px;
-  }
-
-  .campaign-circle{
-    width:340px;
-    height:340px;
-  }
-
-  .wave-divider svg{
-    height:60px;
-  }
-}
-
-@media(max-width:480px){
-
-  .campaign-content h2{
-    font-size:2.2rem;
-  }
-
-  .campaign-btn{
-    width:100%;
-    justify-content:center;
-  }
-
-  .campaign-image img{
-    width:280px;
-  }
-
-  .campaign-circle{
-    width:280px;
-    height:280px;
-  }
-}
 /* ================= HERO ================= */
 
 /* 2. EL LOGO (Con margen inferior para empujar el texto hacia abajo) */
@@ -617,6 +207,8 @@ body{
   width: 300px; 
   height: auto;
   display: block;
+  /* Agrega esta línea para hacer transparente el fondo blanco del JPEG */
+  mix-blend-mode: multiply; 
 }
 
 .hero-content h2 {
@@ -697,20 +289,14 @@ body{
   display:inline-flex;
   align-items:center;
   gap:12px;
-
   text-decoration:none;
-
   background:#D60B5C;
   color:#EDEDED;
-
   margin-left: 20px;
-
   padding:18px 34px;
   border-radius:60px;
-
   font-size:1.1rem;
   font-weight:600;
-
   transition:0.3s ease;
 }
 
@@ -723,20 +309,16 @@ body{
 .hero-image{
   position:relative;
   width:50%;
-
   display:flex;
   justify-content:center;
   align-items:center;
-
   animation:fadeRight 1.2s ease;
 }
 
 .circle{
   position:absolute;
-
   width:520px;
   height:520px;
-
   background:linear-gradient(
     135deg,
     #ffd6e0,
@@ -1539,151 +1121,21 @@ body{
     }
 }
 
-/* --- DISPOSITIVOS MÓVILES (max-width: 768px) --- */
-@media (max-width: 768px) {
-    /* Ajustes generales de espaciado */
-    .catalogo, .custom-section, .values-section, .testimonials, .final-cta {
-        padding: 60px 5%;
-    }
+/* ================= DISCLAIMER ACADÉMICO ================= */
 
-    /* Navbar adaptable básica (Apila elementos de forma estética) */
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        padding: 15px 5%;
-    }
-
-    .logo-section {
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    /* Títulos principales */
-    .section-title h2, .section-header h2, .final-cta h2 {
-        font-size: 2.2rem;
-    }
-
-    .hero-content h2 {
-        font-size: 2.5rem;
-    }
-
-    /* Formulario de Personalización (¡Crucial para móviles!) */
-    .cake-form {
-        padding: 30px 20px;
-        border-radius: 25px;
-    }
-
-    .input-group, .select-grid {
-        grid-template-columns: 1fr; /* Pasa de 2 columnas a 1 sola */
-        gap: 0; /* El margen inferior de los inputs se encarga del espacio */
-    }
-
-    .cake-image {
-        height: 220px;
-    }
+.academic-disclaimer{
+    max-width: 1000px;
+    margin: 40px auto 0;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    text-align: center;
 }
 
-/* --- MÓVILES PEQUEÑOS (max-width: 480px) --- */
-@media (max-width: 480px) {
-    .hero-content h2 {
-        font-size: 2.1rem;
-    }
-
-    .brand h1, .h1-logo {
-        font-size: 1.8rem;
-    }
-
-    .cake, .circle {
-        width: 280px;
-    }
-
-    .circle {
-        height: 280px;
-    }
-
-    /* Footer en una sola columna */
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-
-    .footer-column:first-child {
-        grid-column: span 1;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-
-    .social-links {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
+.academic-disclaimer p{
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    font-weight: 300;
+    letter-spacing: 0.3px;
 }
-
-
-
-/* Responsividad *//*
-@media (max-width: 900px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-    
-    .footer-column.branding {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .social-links {
-        justify-content: center;
-    }
-
-    .footer-bottom {
-        flex-direction: column;
-        gap: 10px;
-    }
-}
-*/
-/* Tipografía Compartida *//*
-.h2-script-title {
-    font-family: var(--font-script);
-    font-size: 3.5rem;
-    color: var(--dark-color);
-    font-weight: 400;
-}
-
-.h2-script-text {
-    font-family: var(--font-script);
-    font-weight: 400;
-}*/
-
-/* ================= RESPONSIVE ================= */
-/*
-@media(max-width:900px){
-
-  .story-section{
-    flex-direction:column;
-  }
-
-  .input-group,
-  .select-grid{
-    grid-template-columns:1fr;
-  }
-
-  .section-header h2,
-  .story-content h2,
-  .final-cta h2{
-    font-size:2.2rem;
-  }
-
-  .cake-form{
-    padding:30px 20px;
-  }
-}
-*/

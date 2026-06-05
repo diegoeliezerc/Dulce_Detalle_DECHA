@@ -26,7 +26,6 @@ if (cake) {
 // ==========================================================================
 // 3. ANIMACIONES AL HACER SCROLL (INTERSECTION OBSERVER)
 // ==========================================================================
-// Animación específica de la cuadrícula de pasteles (Aparecen uno por uno)
 const cards = document.querySelectorAll(".cake-card");
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -44,7 +43,6 @@ cards.forEach((card, index) => {
     observer.observe(card);
 });
 
-// Animación general de tarjetas secundarias (Procesos, Detalles, Valores, etc.)
 const animatedElements = document.querySelectorAll(".process-card, .detail-card, .value-card, .testimonial-card");
 const reveal = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
@@ -65,7 +63,6 @@ animatedElements.forEach((el) => {
 const backToTopBtn = document.getElementById("btn-back-to-top");
 
 window.addEventListener("scroll", () => {
-    // Si el usuario baja más de 400px en la página, se muestra el botón
     if (window.scrollY > 400) {
         backToTopBtn.classList.add("show-btn");
     } else {
@@ -76,81 +73,98 @@ window.addEventListener("scroll", () => {
 backToTopBtn.addEventListener("click", () => {
     window.scrollTo({
         top: 0,
-        behavior: "smooth" // Desplazamiento suave y elegante
+        behavior: "smooth"
     });
 });
 
 // ==========================================================================
-// 5. INICIALIZACIÓN DE CLIENTE SUPABASE
+// 5. INICIALIZACIÓN DE CLIENTE SUPABASE (URL CORREGIDA)
 // ==========================================================================
-const SUPABASE_URL = "https://ilbitlztwmlxcadwkqsg.supabase.co/rest/v1/"; 
+const SUPABASE_URL = "https://ilbitlztwmlxcadwkqsg.supabase.co"; 
 const SUPABASE_KEY = "sb_publishable_YhjsYIfCcRxJOQRll1rK0A_s9Y3gSR9"; 
+
 const client = supabase.createClient(SUPABASE_URL, SUPABASE_KEY); 
 
+// ÚNICA DECLARACIÓN DEL FORMULARIO
+const form = document.getElementById("cakeForm");
+
+/* ================= ENVIAR FORMULARIO (SUPABASE + WHATSAPP UNIFICADO) ================= */
+form.addEventListener("submit", async function(e){
+    e.preventDefault();
+
+    /* CAPTURAR DATOS DEL FORMULARIO */
+    const nombre_completo = document.getElementById("nombre_completo").value;
+    const telefono = document.getElementById("telefono").value;
+    const direccion_entrega = document.getElementById("direccion_entrega").value;
+    const tipo_evento = document.getElementById("tipo_evento").value;
+    const tematica_pastel = document.getElementById("tematica_pastel").value;
+    const sabor = document.getElementById("sabor").value;
+    const peso = document.getElementById("peso").value;
+    const fecha_evento = document.getElementById("fecha_evento").value;
+    const descripcion = document.getElementById("descripcion").value;
+
+    /* INSERTAR EN SUPABASE */
+    const { error } = await client
+        .from("pedidos")
+        .insert([
+            {
+                nombre_completo,
+                telefono,
+                direccion_entrega,
+                tipo_evento,
+                tematica_pastel,
+                sabor,
+                peso,
+                fecha_evento,
+                descripcion
+            }
+        ]);
+
+    if (error) {
+        console.error(error);
+        alert("Error al guardar pedido");
+        return;
+    }
+
+    /* SI GUARDA EN SUPABASE, ARMA EL MENSAJE Y ABRE WHATSAPP */
+    const mensaje = 
+`Hola Dulce Detalle ✨
+
+Mi nombre es ${nombre_completo}
+
+Quiero información para un pastel personalizado 🎂
+
+📞 Teléfono: ${telefono}
+🎉 Evento: ${tipo_evento}
+🎂 Sabor: ${sabor}
+⚖️ Peso: ${peso}
+
+📝 Descripción:
+${descripcion}`;
+
+    const phone = "50589049193";
+    const url = `https://wa.me/${phone}?text=${encodeURIComponent(mensaje)}`;
+
+    window.open(url, "_blank");
+    
+    // Limpia el formulario para el siguiente pedido
+    form.reset();
+});
+
 // ==========================================================================
-// 6. CONTROL DEL FORMULARIO INTEGRADO (SUPABASE + MENSAJE DETALLADO WHATSAPP)
+// 6. FUNCIONES ADICIONALES DE CONSULTAS (OPCIONALES / SISTEMA INTERNO)
 // ==========================================================================
-const form = document.getElementById("cakeForm"); 
+async function obtenerPedidosPorFecha() {
+    const { data, error } = await client
+        .from('pedidos')
+        .select('*')
+        .eq('fecha_evento', '2026-05-30');
 
-if (form) {
-    form.addEventListener("submit", async function(e){ 
-        e.preventDefault(); 
-        
-        /* 6.1 CAPTURAR TODOS LOS DATOS INGRESADOS */ 
-        const nombre_completo = document.getElementById("nombre_completo").value; 
-        const telefono = document.getElementById("telefono").value; 
-        const direccion_entrega = document.getElementById("direccion_entrega").value; 
-        const tipo_evento = document.getElementById("tipo_evento").value; 
-        const tematica_pastel = document.getElementById("tematica_pastel").value; 
-        const sabor = document.getElementById("sabor").value; 
-        const peso = document.getElementById("peso").value; 
-        const fecha_evento = document.getElementById("fecha_evento").value; 
-        const descripcion = document.getElementById("descripcion").value; 
-
-        /* 6.2 ENVIAR Y GUARDAR EN LA BASE DE DATOS DE SUPABASE */ 
-        const { error } = await client 
-            .from("pedidos") 
-            .insert([ 
-                { 
-                    nombre_completo, 
-                    telefono, 
-                    direccion_entrega, 
-                    tipo_evento, 
-                    tematica_pastel, 
-                    sabor, 
-                    peso, 
-                    fecha_evento, 
-                    descripcion 
-                } 
-            ]); 
-
-        if (error) { 
-            alert("Error al guardar el pedido en la Base de Datos"); 
-            console.log(error); 
-            return; // Frena el proceso si ocurre un error con Supabase
-        } 
-
-        /* 6.3 CONSTRUIR EL MENSAJE CON DISEÑO ESTILIZADO PARA WHATSAPP */ 
-        const phoneNumber = '50583750020';
-        const message = `¡Hola Dulce Detalle! 🌸 Me gustaría cotizar un pastel personalizado.\n\n` +
-                        `*Datos del Cliente:*\n` +
-                        `- Nombre: ${nombre_completo}\n` +
-                        `- Teléfono: ${telefono}\n` +
-                        `- Dirección: ${direccion_entrega || 'No especificada'}\n\n` +
-                        `*Detalles del Pedido:*\n` +
-                        `- Evento: ${tipo_evento} (Fecha: ${fecha_evento || 'Por definir'})\n` +
-                        `- Temática: ${tematica_pastel}\n` +
-                        `- Sabor: ${sabor}\n` +
-                        `- Peso: ${peso}\n\n` +
-                        `*Idea Adicional:*\n${descripcion || 'Sin especificaciones adicionales'}`;
-
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`; 
-        
-        /* 6.4 ABRIR PESTAÑA DE WHATSAPP Y REINICIAR EL FORMULARIO */
-        window.open(whatsappUrl, "_blank"); 
-        alert("¡Pedido registrado correctamente! Redirigiendo a WhatsApp... ✨"); 
-        form.reset(); 
-    });
+    if (error) {
+        console.error("Error:", error);
+    } else {
+        console.log("Pedidos para esa fecha:", data);
+    }
 }
 
 // ==========================================================================
@@ -159,7 +173,7 @@ if (form) {
 async function obtenerPedidos() {
     const { data, error } = await client
         .from("pedidos")
-        .select("*"); // Selecciona todas las columnas
+        .select("*");
 
     if (error) {
         console.error("Error al obtener los pedidos:", error);
@@ -167,7 +181,6 @@ async function obtenerPedidos() {
     }
 
     console.log("Lista de pedidos recibida:", data);
-    // Aquí puedes usar un 'forEach' para pintar los pedidos en tu HTML
     return data;
 }
 
@@ -177,8 +190,8 @@ async function obtenerPedidos() {
 async function actualizarSaborPedido(idPedido, nuevoSabor) {
     const { data, error } = await client
         .from("pedidos")
-        .update({ sabor: nuevoSabor }) // Objeto con los campos que quieres cambiar
-        .eq("id", idPedido);           // .eq significa "equal" (Donde id sea igual a idPedido)
+        .update({ sabor: nuevoSabor })
+        .eq("id", idPedido);
 
     if (error) {
         alert("No se pudo actualizar el pedido");
@@ -187,20 +200,19 @@ async function actualizarSaborPedido(idPedido, nuevoSabor) {
     }
 
     alert("¡Pedido actualizado con éxito! 🎂");
-    obtenerPedidos(); // Refrescas la lista visual
+    obtenerPedidos();
 }
 
 // ==========================================================================
 // 9. CRUD - BORRAR PEDIDO
 // ==========================================================================
 async function eliminarPedido(idPedido) {
-    // Es buena práctica pedir confirmación antes de borrar
     if (!confirm("¿Seguro que deseas eliminar este pedido?")) return;
 
     const { error } = await client
         .from("pedidos")
         .delete()
-        .eq("id", idPedido); // Asegúrate siempre de poner el .eq para no borrar toda la tabla
+        .eq("id", idPedido);
 
     if (error) {
         alert("Error al eliminar el pedido");
@@ -209,5 +221,5 @@ async function eliminarPedido(idPedido) {
     }
 
     alert("Pedido eliminado correctamente.");
-    obtenerPedidos(); // Refrescas la lista visual para que desaparezca
+    obtenerPedidos();
 }
